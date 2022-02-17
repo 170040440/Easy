@@ -1,0 +1,15 @@
+def solve():
+    input n, k, m
+    current_student = 1
+    for section from 1 to m:
+        input a
+        for i from 1 to a:
+            if current_student == k:
+                print section
+                return
+            current_student++
+
+def main():
+    input t
+    for case from 1 to t
+        solve()
