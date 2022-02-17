@@ -1,0 +1,6 @@
+def solve(h, wallPoints, lengths):
+    n = len(wallPoints)
+    ans = h
+    for i in range(n):
+        ans = max(ans, math.ceil(wallPoints[i] - (lengths[i]/4.0)))
+    return int(ans - h)
