@@ -1,0 +1,5 @@
+import re
+test_str = "srinivas7609 redddy 7690"
+print("The original string is : " + test_str)
+res = len(re.findall(r'\d+', test_str))
+print("Count of numerics in string : " + str(res))
