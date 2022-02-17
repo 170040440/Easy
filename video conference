@@ -1,0 +1,17 @@
+n = int(input())
+seen = {}
+for _ in range(n):
+    name = input().strip()
+    l = len(name)
+    this_done = False
+    for x in range(1, l+1):
+        cur_name = name[:x]
+        if not this_done and cur_name not in seen:
+            print(cur_name)
+            this_done = True
+        seen.setdefault(cur_name, 0)
+    seen[name] += 1
+    if not this_done and seen[name] == 1:
+        print(name)
+    elif not this_done:
+        print('{} {}'.format(name, seen[name]))
