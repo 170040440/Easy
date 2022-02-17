@@ -1,0 +1,49 @@
+
+import heapq as hq
+
+
+def dij(start,end,k):
+    h=[]
+    nodes=set([i for i in xrange(n+1)])
+    hq.heappush(h,(0,start))
+    while h and nodes:
+        dist,node=hq.heappop(h)
+        try:
+            while node not in nodes:
+                dist,node=hq.heappop(h)
+        except IndexError:
+            break
+        nodes.remove(node)
+        visited[node]=True
+        if node==end:
+            return dist
+        for node1,dist1 in adj[node]:
+            if visited[node1]==False:
+                timetaken = dist + dist1 
+                Ntime=timetaken #This time is for nth junction
+                if timetaken % k == 0:
+                    if (timetaken / k) % 2 != 0:
+                        timetaken += k
+                else:
+                    if (timetaken / k) % 2 != 0:
+                        timetaken = (timetaken / k) * k + k
+                if node1==n and Ntime<distance[node1]:
+                    distance[node1]=Ntime
+                    hq.heappush(h,(Ntime,node1))
+                elif timetaken<distance[node1]:
+                    distance[node1]=timetaken
+                    hq.heappush(h,(timetaken,node1))
+    return distance[end]
+
+
+n=input()
+k=input()
+m=input()
+visited=[False for i in xrange(n+1)]
+distance=[10**9 for i in xrange(n+1)]
+adj=[[] for i in xrange(n+1)]
+for i in xrange(m):
+    a,b,c=map(int,raw_input().split())
+    adj[a].append([b,c])
+    adj[b].append([a,c])
+print dij(1,n,k)
