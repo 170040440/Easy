@@ -17,7 +17,6 @@ if __name__ == '__main__':
     arr = map(int, raw_input().rstrip().split())
 
     result = rotateLeft(d, arr)
-
     fptr.write(' '.join(map(str, result)))
     fptr.write('\n')
     fptr.close()
