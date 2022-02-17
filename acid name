@@ -1,0 +1,14 @@
+
+import sys
+
+def acidNaming(acid_name):
+     if(array[0]=='h' && array[1]=='y' && array[2]=='d' && array[3]=='r' && array[4]=='o'&& array[array.length-2]=='i' && array[array.length-1]=='c){
+            System.out.println("non-metal acid");
+     }
+
+if __name__ == "__main__":
+    n = int(raw_input().strip())
+    for a0 in xrange(n):
+        acid_name = raw_input().strip()
+        result = acidNaming(acid_name)
+        print result
