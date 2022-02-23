@@ -1,0 +1,18 @@
+file1 = open('practice.txt', 'r')
+  
+
+file2 = open('practiceUpdated.txt','w')
+  
+
+for line in file1.readlines():
+    
+     
+    if not (line.startswith('TextGenerator')):
+        
+       
+        print(line)
+          
+        file2.write(line)
+  
+file2.close()
+file1.close()
