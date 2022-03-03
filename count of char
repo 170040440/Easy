@@ -1,0 +1,10 @@
+import collections
+str1 = input()
+n=len(str1)
+d = collections.defaultdict(int)
+for i in str1:
+    d[i] += 1
+for i in str1:
+  if d[i] > 1:
+      print('%s %d' % (i, d[i]))
+      d[i]=0
