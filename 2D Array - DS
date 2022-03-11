@@ -14,6 +14,7 @@ def array2D(arr):
             if hourglass > maxSum:
                 maxSum = hourglass
     return maxSum
+    
    if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
     arr = []
