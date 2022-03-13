@@ -8,3 +8,4 @@ while input1[0] == "/":
         i += 1
     input1 = input1[:pos] + input1[i-1:pos:-1]+input1[i+1:]
 print(''.join(input1))
+
