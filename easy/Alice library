@@ -1,0 +1,10 @@
+input1 = input()
+while input1[0] == "/":
+    i = 0
+    pos = 0
+    while input1[i] != '\\':
+        if input1[i] == '/':
+            pos = i
+        i += 1
+    input1 = input1[:pos] + input1[i-1:pos:-1]+input1[i+1:]
+print(''.join(input1))
