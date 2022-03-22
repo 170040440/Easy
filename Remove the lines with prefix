@@ -4,8 +4,7 @@ file1 = open('practice.txt', 'r')
 file2 = open('practiceUpdated.txt','w')
   
 
-for line in file1.readlines():
-    
+for line in file1.readlines():    
      
     if not (line.startswith('TextGenerator')):
         
