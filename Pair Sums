@@ -1,0 +1,31 @@
+import sys
+
+def largestValue(n, A):
+    
+    dp = [0, A[0] * A[1]]
+    rsum = [A[0]]
+    for i in range(1, n):
+        rsum += [rsum[-1] + A[i]]
+    for i in range(2, n):
+        dp += [dp[-1] + rsum[i - 1] * A[i]]
+    
+    m = max(dp)
+    res = m
+    for i in range(n):
+        if(dp[i] != m):
+            continue
+            
+        rrsum = rsum[i]
+        dp2 = dp[i]
+        for j in range(0, i):
+            rrsum -= A[j]
+            dp2 -= A[j] * rrsum
+            res = max(dp2, res)
+        
+    return res
+    
+if __name__ == "__main__":
+    n = int(input().strip())
+    A = list(map(int, input().strip().split(' ')))
+    result = max(largestValue(n, A), largestValue(n, A[::-1]))
+    print(result)
