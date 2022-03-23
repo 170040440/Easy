@@ -1,18 +1,33 @@
-int X[] = {0, -1, 0, 1};
-int Y[] = {1, 0, -1, 0};
+MAX = 2
 
-bool validateConfiguration(int M[N][N]) {
-    bool isValid = true;
-    for(int i=0; i<N; i++) {
-        for(int j=0; j<N; j++) {
-            for(int k=0; k<4; k++) {
-                int newX = i + X[k];
-                int newY = j + Y[k];
-                if(newX < N && newY < N && newX >= 0 && newY >= 0 && M[newX][newY] == M[i][j]) {
-                    isValid = false;
-                } 
-            }
-        }
-    }
-    return isValid;
-}
+def isValid(c, n) :
+
+	X = [ 0, -1, 0, 1]
+	Y = [ 1, 0, -1, 0]
+	isValid = True
+
+
+	for i in range(n) :
+		for j in range(n) :
+			
+			for k in range(n) :
+				newX = i + X[k]
+				newY = j + Y[k]
+				if (newX < n and newY < n and
+					newX >= 0 and newY >= 0 and
+					c[newX][newY] == c[i][j]) :
+					isValid = false
+
+	return isValid
+
+if __name__ == "__main__" :
+	n = 2
+	c = [ [1, 0],
+		[0, 1] ]
+
+	if isValid(c, n) :
+		print("Yes")
+
+	else :
+		print("No")
+					
